@@ -1,0 +1,97 @@
+Skip to content
+macloud4
+/
+vigenere
+
+Type / to search
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+Commit
+Assignment
+Assignment
+ main
+@macloud4
+macloud4 committed yesterday 
+0 parents
+commit 4753e28
+Showing 1 changed file with 52 additions and 0 deletions.
+ 52 changes: 52 additions & 0 deletions52  
+Assignment
+@@ -0,0 +1,52 @@
+# KAMULA MACLOUDY EE105/G/11328/20
+# Python code to implement
+# Vigenere Cipher
+
+# This function generates the 
+# key in a cyclic manner until 
+# it's length isn't equal to 
+# the length of original text
+def generateKey(string, key):
+	key = list(key)
+	if len(string) == len(key):
+		return(key)
+	else:
+		for i in range(len(string) -
+					len(key)):
+			key.append(key[i % len(key)])
+	return("" . join(key))
+
+# This function returns the 
+# encrypted text generated 
+# with the help of the key
+def cipherText(string, key):
+	cipher_text = []
+	for i in range(len(string)):
+		x = (ord(string[i]) +
+			ord(key[i])) % 26
+		x += ord('A')
+		cipher_text.append(chr(x))
+	return("" . join(cipher_text))
+
+# This function decrypts the 
+# encrypted text and returns 
+# the original text
+def originalText(cipher_text, key):
+	orig_text = []
+	for i in range(len(cipher_text)):
+		x = (ord(cipher_text[i]) -
+			ord(key[i]) + 26) % 26
+		x += ord('A')
+		orig_text.append(chr(x))
+	return("" . join(orig_text))
+
+# Driver code
+if __name__ == "__main__":
+	string = "TELECOMMUNICATIONENGINEERING"
+	keyword = "KAMULA"
+	key = generateKey(string, keyword)
+	cipher_text = cipherText(string,key)
+	print("Ciphertext :", cipher_text)
+	print("Original/Decrypted Text :", 
+		originalText(cipher_text)
+
+0 comments on commit 4753e28
+@mainafred
+Comment
+ 
+Leave a comment
+ 
+ You’re not receiving notifications from this thread.
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+Assignment · macloud4/vigenere@4753e28
